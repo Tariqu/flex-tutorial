@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">Technical Babaji</span>
+      </button>
+      <div *ngIf="!deviceXs" fxLayout="row">
+        <button mat-button>Home</button>
+        <button mat-button>About us</button>
+        <button mat-button>Contact us</button>
+      </div>
+    </div>
+    <div>
+      <button *ngIf="deviceXs" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button
+        *ngIf="!deviceXs"
+        mat-button
+        [matMenuTriggerFor]="menu"
+        fxLayoutAlign="end"
+      >
+        Menu
+      </button>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+    <button mat-button>Home</button>
+    <button mat-button>About us</button>
+    <button mat-button>Contact us</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- Menu Items -->
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
